@@ -41,7 +41,7 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  const USER = (user) => {
+  const USER = ({ user }) => {
     return (
       <div>
         <span>User: {user.attributes.email}</span>
