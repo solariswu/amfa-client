@@ -30,7 +30,6 @@ export default function App() {
     Auth.currentAuthenticatedUser()
       .then((currentUser) => {
         setUser(currentUser);
-        console.log(user);
         setLoading(false);
       })
       .catch(() => {
