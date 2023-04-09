@@ -7,8 +7,8 @@ const awsmobile = {
   oauth: {
     domain: "epnd-dev001-amfa.auth.eu-west-1.amazoncognito.com",
     scope: ["openid", "profile", "aws.cognito.signin.user.admin"],
-    redirectSignIn: "https://oi99c3.csb.app/",
-    redirectSignOut: "https://oi99c3.csb.app/",
+    redirectSignIn: "https://amfa.netlify.app/",
+    redirectSignOut: "https://amfa.netlify.app/",
     responseType: "code"
   }
 };
