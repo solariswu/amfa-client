@@ -11,7 +11,7 @@ export default function App() {
   const [isLoading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState(null);
 
   useEffect(() => {
     const unsubscribe = Hub.listen("auth", ({ payload: { event, data } }) => {
@@ -31,6 +31,7 @@ export default function App() {
 
     setLoading(true);
     const infoMsg = searchParams.get("info");
+    console.log ('home got', infoMsg);
     if (infoMsg) {
       setInfo(infoMsg);
       setSearchParams({});
@@ -72,12 +73,22 @@ export default function App() {
     );
   };
 
+  if (info) {
+    // setShow(true);
+    // setTimeout(() => {
+    //   setInfo(null);
+    //   setShow(false);
+    // }, 10000);
+    alert (info);
+    setInfo(null);
+  }
+
   return (
     <div className="App">
-         <Toast onClose={() => {setInfo("");setShow(false)}} show={show} delay={10000} autohide>
+         {/* <Toast onClose={() => {setInfo(null);setShow(false)}} show={show} delay={10000} autohide>
           <Toast.Header closeButton={false} / >
           <Toast.Body>{infoMsg}</Toast.Body>
-        </Toast>
+        </Toast> */}
       <div style={{ position: "absolute", top: "48%" }}>
         {isLoading ? (
           "Loading..."
