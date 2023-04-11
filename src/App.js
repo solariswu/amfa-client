@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState, useEffect, useSearchParams } from "react";
+import { useState, useEffect } from "react";
 import { Amplify, Auth, Hub } from "aws-amplify";
 
 import awsconfig from "./aws-export";
@@ -10,7 +10,6 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
@@ -30,11 +29,13 @@ export default function App() {
     });
 
     setLoading(true);
-    const infoMsg = searchParams.get("info");
+
+    const queryParams = new URLSearchParams(window.location.search)
+    const infoMsg = queryParams.get("info")
+
     console.log ('home got', infoMsg);
     if (infoMsg) {
       setInfo(infoMsg);
-      setSearchParams({});
       setShow(true);
     }
     Auth.currentAuthenticatedUser()
