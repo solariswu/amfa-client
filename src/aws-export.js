@@ -2,7 +2,7 @@
 
 const awsmobile = {
   aws_project_region: "eu-west-1",
-  aws_user_pools_web_client_id: "3bu3siaqq2vfap75n8t0t3tglq",
+  aws_user_pools_web_client_id: "3h0rirecom4pf84i79mcigl1o7",
   aws_user_pools_id: "eu-west-1_KKXOfv8rW",
   oauth: {
     domain: "epnd-dev002-amfa.auth.eu-west-1.amazoncognito.com",
