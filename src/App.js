@@ -33,11 +33,13 @@ export default function App() {
     const queryParams = new URLSearchParams(window.location.search)
     const amfaOperation = queryParams.get("amfa")
 
-    console.log ('home got', amfaOperation);
+    console.log('home got', amfaOperation);
     if (amfaOperation === 'relogin') {
       Auth.federatedSignIn({ provider: "amfa" });
+      setShow(false);
       return;
     }
+    setShow(true);
     Auth.currentAuthenticatedUser()
       .then((currentUser) => {
         setUser(currentUser);
@@ -80,23 +82,25 @@ export default function App() {
     //   setInfo(null);
     //   setShow(false);
     // }, 10000);
-    alert (info);
+    alert(info);
     setInfo(null);
   }
 
   return (
-    <div className="App">
-         {/* <Toast onClose={() => {setInfo(null);setShow(false)}} show={show} delay={10000} autohide>
+    <>
+      {show && (<div className="App">
+        {/* <Toast onClose={() => {setInfo(null);setShow(false)}} show={show} delay={10000} autohide>
           <Toast.Header closeButton={false} / >
           <Toast.Body>{infoMsg}</Toast.Body>
         </Toast> */}
-      <div style={{ position: "absolute", top: "48%" }}>
-        {isLoading ? (
-          "Loading..."
-        ) : (
-          <div>{user && user.attributes ? <USER user={user} /> : <LOGIN />}</div>
-        )}
-      </div>
-    </div>
+        <div style={{ position: "absolute", top: "48%" }}>
+          {isLoading ? (
+            "Loading..."
+          ) : (
+            <div>{user && user.attributes ? <USER user={user} /> : <LOGIN />}</div>
+          )}
+        </div>
+      </div>)}
+    </>
   );
 }
