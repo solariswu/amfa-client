@@ -31,12 +31,12 @@ export default function App() {
     setLoading(true);
 
     const queryParams = new URLSearchParams(window.location.search)
-    const infoMsg = queryParams.get("info")
+    const amfaOperation = queryParams.get("amfa")
 
-    console.log ('home got', infoMsg);
-    if (infoMsg) {
-      setInfo(infoMsg);
-      setShow(true);
+    console.log ('home got', amfaOperation);
+    if (amfaOperation === 'relogin') {
+      Auth.federatedSignIn({ provider: "amfa" });
+      return;
     }
     Auth.currentAuthenticatedUser()
       .then((currentUser) => {
