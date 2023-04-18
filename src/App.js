@@ -76,9 +76,9 @@ export default function App() {
   };
 
   return (
-    <>
+    <div style={{ height: "100%"}}>
       {show && (<div className="App">
-        <div style={{ position: "absolute", top: "48%" }}>
+        <div style={{ margin: "auto"}}>
           {isLoading ? (
             "Loading..."
           ) : (
@@ -86,6 +86,6 @@ export default function App() {
           )}
         </div>
       </div>)}
-    </>
+    </div>
   );
 }
