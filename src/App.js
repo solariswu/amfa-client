@@ -68,7 +68,7 @@ export default function App() {
     return (
       <button
         className="button-paper"
-        onClick={() => { setLoading(true); Auth.federatedSignIn({ provider: "amfa" }); }}
+        onClick={() => { setLoading(true); Auth.federatedSignIn({ provider: "apersona" }); }}
       >
         Login
       </button>
