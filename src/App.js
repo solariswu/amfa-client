@@ -34,7 +34,7 @@ export default function App() {
     const amfaOperation = queryParams.get("amfa")
 
     if (amfaOperation === 'relogin') {
-      Auth.federatedSignIn({ provider: "aPersona" });
+      Auth.federatedSignIn({ provider: "apersona" });
       setShow(false);
       return;
     }
